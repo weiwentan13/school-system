@@ -1,0 +1,90 @@
+const CreateAssignmentFormA = () => {
+  return (
+    <Form name="dynamic_form_item" onFinish={onFinish}>
+          <Form.List
+          name="names"
+          rules={[
+            {
+              validator: async (_, names) => {
+                if (!names || names.length < 1) {
+                  return Promise.reject(new Error('At least 1 question'));
+                  }
+              },
+            },
+          ]}
+          >
+          {(fields, { add, remove, move }, { errors }) => (
+            <>
+            <DragDropContext
+                  onDragEnd={onDragEnd}
+                >
+              <Droppable droppableId="droppable-1">
+                {provided => (
+                  <div 
+                    ref={provided.innerRef}
+                    {...provided.droppableProps}  
+                  >
+                  {fields.map((field, index) => (
+                    <Draggable draggableId={index.toString()} index={index} key={index}>
+                      {(provided) => (
+                        <div
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                          ref={provided.innerRef}
+                        >
+                        <Card
+                        key={field.key}
+                        actions={[
+                          <CopyOutlined key="copy" onClick={onFinish} />,
+                          <EditOutlined key="edit" onClick={onFinish}/>,
+                          <CloseOutlined key="close" onClick={() => remove(field.name)}/>,
+                        ]}
+                        >
+                      <Form.Item
+                          {...field}
+                          validateTrigger={['onChange', 'onBlur']}
+                          rules={[
+                            {
+                              required: true,
+                              whitespace: true,
+                              message: "Please input passenger's name or delete this field.",
+                            },
+                          ]}
+                          noStyle
+                          >
+                          <div style={{padding: '0 20px'}}>
+                          <Input placeholder="passenger name" style={{ width: '100%' }} />
+                          </div>
+                      </Form.Item>
+                    </Card>
+                            </div>
+                    )}
+                    </Draggable>
+                ))}
+                {provided.placeholder}
+                </div>
+              )}
+              </Droppable>
+              <Form.Item>
+                  <Button
+                  type="dashed"
+                  onClick={() => add()}
+                  style={{ width: '90%' }}
+                  icon={<PlusOutlined />}
+                  >
+                  Add field
+                  </Button>
+                  <Form.ErrorList errors={errors} />
+              </Form.Item>
+          </DragDropContext>
+              </>
+          )}
+          </Form.List>
+        <Form.Item>
+        <Button type="primary" htmlType="submit">
+            Submit
+        </Button>
+        </Form.Item>
+    </Form>
+  );
+}
