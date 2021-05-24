@@ -1,0 +1,237 @@
+{
+    "code": "UECM0002",
+    "title": "5 Trivial questions",
+    "status": 2,
+    "year": "G2",
+    "deadline": "2021-03-24 12:42:33",
+    "questions": [
+        {
+            "title": "What is the name for the Jewish New Year?",
+            "order": 1,
+            "choices": [
+                "Hanukkah",
+                "Yom Kippur",
+                "Kwanza",
+                "Rosh Hashanah"
+            ],
+            "answer": "Yom Kippur"
+        },
+        {
+            "title": "How many blue stripes are there on the U.S. flag?",
+            "order": 2,
+            "choices": [
+                "6",
+                "7",
+                "13",
+                "0"
+            ],
+            "answer": "13"
+        },
+        {
+            "title": "Which one of these characters is not friends with Harry Potter?",
+            "order": 3,
+            "choices": [
+                "Ron Weasley",
+                "Neville Longbottom",
+                "Draco Malfoy",
+                "Hermione Granger"
+            ],
+            "answer": "Draco Malfoy"
+        },
+        {
+            "title": "What is the color of Donald Duck’s bowtie?",
+            "order": 4,
+            "choices": [
+                "Red",
+                "Yellow",
+                "Blue",
+                "White"
+            ],
+            "answer": "Blue"
+        },
+        {
+            "title": "What was the name of the band Lionel Richie was a part of?",
+            "order": 5,
+            "choices": [
+                "King Harvest",
+                "Spectrums",
+                "Commodores",
+                "The Marshall Tucker Band"
+            ],
+            "answer": "The Marshall Tucker Band"
+        }
+    ]
+}
+
+
+
+
+{
+    "code": "UECM0001",
+    "title": "50 Trivial questions",
+    "questions": [
+        {
+            "id": 51,
+            "order": 5,
+            "title": "What is the name for the Jewish New Year?",
+            "choices": [
+                "Hanukkah",
+                "Yom Kippur",
+                "Kwanza",
+                "Rosh Hashanah"
+            ],
+            "answer": "Yom Kippur"
+        }
+    ]
+}
+
+{
+    "assignment": "UECM0001",
+    "student": 1,
+    "answered_questions": [
+        {
+            "question": 51,
+            "student_answer": "Yom Kippur"
+        },
+        {
+            "question": 52,
+            "student_answer": "7"
+        },
+        {
+            "question": 53,
+            "student_answer": "Draco Malfoy"
+        },
+        {
+            "question": 54,
+            "student_answer": "Red"
+        },
+        {
+            "question": 55,
+            "student_answer": "King Harvest"
+        }
+    ]
+}
+
+{
+    "marked": false,
+    "grade": 40.0
+}
+
+{
+    "questions": [
+        {
+            "id": 37,
+            "order": 1
+        }
+    ]
+}
+
+{
+    "teacher": "tanweiwen",
+    "title": "django beginner",
+    "is_draft": true,
+    "year_in_school": "G2",
+    "deadline": null,
+    "question_count": 3,
+    "questions": [
+        {
+            "order": 1,
+            "title": "What is Python? Is it easy to learn?",
+            "remark": "apple",
+            "choices": [
+                "apple",
+                "orange",
+                "pineapple"
+            ],
+            "answer": "yes"
+        },
+        {
+            "order": 2,
+            "title": "What is Python Spyder IDE and How to use it?",
+            "remark": "no remark",
+            "choices": [],
+            "answer": "applllle"
+        },
+        {
+            "order": 3,
+            "title": "What is Python Spyder IDE and How to use it?333",
+            "remark": "no remark",
+            "choices": [],
+            "answer": "appl3e"
+        }
+    ]
+}
+
+
+
+{
+    "assignment": 921,
+    "title": "question3",
+    "remark": "no remark",
+    "choices": [
+        {
+            "title": "apple2"
+        },
+        {
+            "title": "orange3"
+        }
+    ],
+    "answer": "apple2"
+}
+
+{
+    "questions": [
+        {
+            "title": "questiontest",
+            "remark": "no remark",
+            "choices": [
+                {
+                    "title": "testing"
+                },
+                {
+                    "title": "orange3"
+                }
+            ],
+            "answer": "apple2"
+        },
+        {
+            "title": "question4",
+            "remark": "no remark",
+            "choices": [
+                {
+                    "title": "apple3"
+                },
+                {
+                    "title": "orange3"
+                }
+            ],
+            "answer": "apple3"
+        }
+    ]
+}
+
+{
+    "id": 922,
+    "teacher": "tanweiwen",
+    "title": "testing2",
+    "is_draft": true,
+    "year_in_school": "G1",
+    "question_count": 1,
+    "questions": [
+        {
+            "id": 33,
+            "order": 1,
+            "title": "aa",
+            "remark": null,
+            "choices": [
+                {
+                    "title": "apple2"
+                },
+                {
+                    "title": "orange3"
+                }
+            ],
+            "answer": "apple2"
+        }
+    ]
+}

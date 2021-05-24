@@ -1,0 +1,65 @@
+# def to_internal_value(self, data):
+#     Foo.objects.get_or_create(foo=data['foo'])
+#     return super().to_internal_value(data)
+
+
+class IsOwnerOnly(permissions.BasePermission):
+    message = 'Only can view your own details'
+    def has_object_permission(self, request, view, obj):
+        if request.user:
+            if request.user.is_superuser:
+                return True
+            return obj.user == request.user
+        else:
+            return False
+
+class IsSupplierOnly(permissions.BasePermission):
+    pass
+
+class IsOwnerOrReadOnly(permissions.BasePermission):
+    def has_object_permission(self, request, view, obj):
+        if request.method in permissions.SAFE_METHODS:
+            return True
+
+        return obj.user == request.user
+
+class ObjectiveQuestionViewSet(viewsets.ModelViewSet):
+    serializer_class = ObjectiveQuestionSerializer
+    queryset = ObjectiveQuestion.objects.all().order_by('order')
+    permission_classes = [AllowAny]
+    # filter_backends = (DjangoFilterBackend, )
+    filter_fields = ('assignment', )
+
+    @action(methods=['post'], detail=True)
+    def move(self, request, pk):
+        """ Move a single Step to a new position """
+        obj = self.get_object()
+        new_order = request.data.get('order', None)
+
+        # Make sure we received an order 
+        if new_order is None:
+            return Response(
+                data={'error': 'No order given'},
+                status=HTTP_400_BAD_REQUEST,
+            )
+
+        # Make sure our new order is not below one
+        if int(new_order) < 1:
+            return Response(
+                data={'error': 'Order cannot be zero or below'},
+                status=HTTP_400_BAD_REQUEST,
+            )
+
+        ObjectiveQuestion.objects.move(obj, new_order)
+
+        return Response({'success': True, 'order': new_order})
+
+class SomeDataSerializer(serializers.ModelSerializer):
+    some_field = serializers.CharField(max_length=100)
+
+    def get_fields(self, *args, **kwargs):
+        fields = super(SomeDataSerializer, self).get_fields(*args, **kwargs)
+        request = self.context.get('request', None)
+        if request and getattr(request, 'method', None) == "POST":
+            fields['some_field'].required = False
+        return fields
